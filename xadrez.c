@@ -1,32 +1,93 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
-
 int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    // Abaixo declaro as variaveis que seram utilizadas pelo sistema
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    int menuOption1, peca;
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    do {
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+        //Menu interativo para iniciar o jogo
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+        printf("\n== Bem-vindo ao Jogo de Xadrez! ==\n");
+        printf("MENU INICIAL\n");
+        printf("1. Iniciar novo jogo\n");
+        printf("2. Regras\n");
+        printf("3. Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &menuOption1);
+
+        //Segundo mnu interativo para escolha de peça
+
+        if (menuOption1 == 1) {
+            printf("\nIniciando novo jogo...\n");
+            printf("Escolha qual peça você quer mover:\n");
+            printf("1. Torre\n");
+            printf("2. Bispo\n");
+            printf("3. Rainha\n");
+            printf("Escolha: ");
+            scanf("%d", &peca);
+
+            //Após a escolha do usuario o sistemas ira mostrar o movimento da peça escolhida
+
+            switch (peca) {
+                case 1: // Torre → usa FOR
+                    printf("\n--- Movimento da Torre ---\n");
+                    for (int i = 1; i <= 5; i++) {
+                        printf("Casa %d: Direita\n", i);
+                    }
+                    break;
+
+                case 2: // Bispo → usa WHILE
+                    printf("\n--- Movimento do Bispo ---\n");
+                    int i = 1;
+                    while (i <= 5) {
+                        printf("Casa %d: Cima, Direita\n", i);
+                        i++;
+                    }
+                    break;
+
+                case 3: // Rainha → usa DO-WHILE
+                    printf("\n--- Movimento da Rainha ---\n");
+                    int j = 1;
+                    do {
+                        printf("Casa %d: Esquerda\n", j);
+                        j++;
+                    } while (j <= 8);
+                    break;
+
+                default:
+                    printf("Opção inválida de peça!\n");
+                    break;
+            }
+        }
+
+        //Exibindo as regras do jogo
+
+        else if (menuOption1 == 2) {
+            printf("\n=== Regras do Jogo ===\n");
+            printf("Torre: move-se 5 casas para a Direita (for).\n");
+            printf("Bispo: move-se 5 casas na Diagonal (Cima, Direita) (while).\n");
+            printf("Rainha: move-se 8 casas para a Esquerda (do-while).\n");
+            printf("Este é apenas um simulador de movimentos.\n");
+        }
+
+        //Ao digitar o numero 3 o jogo ira finalizar
+
+        else if (menuOption1 == 3) {
+            printf("Saindo do jogo... Até a próxima!\n");
+        }
+
+        //Caso a escolha do usuario nao seja compativel exibir
+
+        else {
+            printf("Opção inválida. Por favor, escolha uma opção válida.\n");
+        }
+
+    } while (menuOption1 != 3);
+
 
     return 0;
 }
