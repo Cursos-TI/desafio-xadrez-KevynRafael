@@ -2,15 +2,10 @@
 
 int main() {
 
-
-    // Abaixo declaro as variaveis que seram utilizadas pelo sistema
-
     int menuOption1, peca;
+    int numero = 5;
 
     do {
-
-        //Menu interativo para iniciar o jogo
-
         printf("\n== Bem-vindo ao Jogo de Xadrez! ==\n");
         printf("MENU INICIAL\n");
         printf("1. Iniciar novo jogo\n");
@@ -18,8 +13,6 @@ int main() {
         printf("3. Sair\n");
         printf("Escolha uma opção: ");
         scanf("%d", &menuOption1);
-
-        //Segundo mnu interativo para escolha de peça
 
         if (menuOption1 == 1) {
             printf("\nIniciando novo jogo...\n");
@@ -30,32 +23,49 @@ int main() {
             printf("Escolha: ");
             scanf("%d", &peca);
 
-            //Após a escolha do usuario o sistemas ira mostrar o movimento da peça escolhida
-
             switch (peca) {
-                case 1: // Torre → usa FOR
+
+                // Torre → usa FOR
+
+                case 1:
                     printf("\n--- Movimento da Torre ---\n");
-                    for (int i = 1; i <= 5; i++) {
-                        printf("Casa %d: Direita\n", i);
+
+                        for (int k = 1; k <= 5; k++) {
+                        printf("T");
                     }
+
+                    printf("\n");
+
                     break;
 
-                case 2: // Bispo → usa WHILE
+                    // Bispo → usa WHILE
+
+                case 2:
                     printf("\n--- Movimento do Bispo ---\n");
-                    int i = 1;
-                    while (i <= 5) {
-                        printf("Casa %d: Cima, Direita\n", i);
-                        i++;
-                    }
+
+                    for (int i = 1; i <= numero; i++) {
+                        for (int j = 1; j <= i; j++) {
+                            printf("B");
+                        }
+                            printf("\n");
+                    }   
+
+                    printf("\n");
+
                     break;
 
-                case 3: // Rainha → usa DO-WHILE
+                    // Rainha → usa DO-WHILE
+
+                case 3:
                     printf("\n--- Movimento da Rainha ---\n");
                     int j = 1;
                     do {
-                        printf("Casa %d: Esquerda\n", j);
+                        printf("R");
                         j++;
                     } while (j <= 8);
+
+                    printf("\n");
+
                     break;
 
                 default:
@@ -64,30 +74,23 @@ int main() {
             }
         }
 
-        //Exibindo as regras do jogo
-
         else if (menuOption1 == 2) {
             printf("\n=== Regras do Jogo ===\n");
-            printf("Torre: move-se 5 casas para a Direita (for).\n");
-            printf("Bispo: move-se 5 casas na Diagonal (Cima, Direita) (while).\n");
-            printf("Rainha: move-se 8 casas para a Esquerda (do-while).\n");
+            printf("Torre: move-se 5 casas para a Direita.\n");
+            printf("Bispo: move-se 5 casas na Diagonal.\n");
+            printf("Rainha: move-se 8 casas para a Esquerda.\n");
             printf("Este é apenas um simulador de movimentos.\n");
         }
-
-        //Ao digitar o numero 3 o jogo ira finalizar
 
         else if (menuOption1 == 3) {
             printf("Saindo do jogo... Até a próxima!\n");
         }
-
-        //Caso a escolha do usuario nao seja compativel exibir
 
         else {
             printf("Opção inválida. Por favor, escolha uma opção válida.\n");
         }
 
     } while (menuOption1 != 3);
-
 
     return 0;
 }
